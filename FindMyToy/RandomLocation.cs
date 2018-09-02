@@ -9,7 +9,8 @@ internal class RandomLocation
 
   public Location GetInRange(int range)
   {
-    var index = _random.GetNext(0, 1);
+    var numberOfLocations = 1 + (range - 1) * 2;
+    var index = _random.GetNext(0, numberOfLocations);
     return new Location(0, 0);
   }
 }
