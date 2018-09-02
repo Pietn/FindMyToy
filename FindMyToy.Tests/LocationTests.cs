@@ -44,4 +44,15 @@ public class LocationTests
 
     Assert.False(areEquel);
   }
+  
+  [Fact]
+  public void When2LocationsHaveDifferentY_ThenTheyAreNotEqual()
+  {
+    var location1 = new Location(1, 2);
+    var location2 = new Location(1, 4);
+
+    var areEquel = location1.Equals(location2);
+
+    Assert.False(areEquel);
+  }
 }
