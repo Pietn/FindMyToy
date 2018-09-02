@@ -1,8 +1,8 @@
 public class Game
 {
-  public Game(int mapSize)
+  internal Game(int mapSize, IRandomLocation randomLocation)
   {
-    PlayerLocation = new Location(0, 0);
+    PlayerLocation = randomLocation.GetInRange(mapSize);
   }
 
   internal Location PlayerLocation { get; private set; }
