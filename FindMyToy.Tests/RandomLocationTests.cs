@@ -22,4 +22,14 @@ public class RandomLocationTests
 
     random.Verify(t => t.GetNext(0, 3), Times.AtLeastOnce);
   }
+  
+  [Fact]
+  public void WhenRangeIs3_ThenRandomLocationsIs11()
+  {
+    var random = new Mock<IRandom>();
+    var randomLocation = new RandomLocation(random.Object);
+    randomLocation.GetInRange(2);
+
+    random.Verify(t => t.GetNext(0, 3), Times.AtLeastOnce);
+  }
 }
