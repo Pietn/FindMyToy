@@ -3,7 +3,7 @@ using Xunit;
 public class LocationTests
 {
   [Fact]
-  public void When2LocationsHaveEqualXandY_ThenThyAreEqual()
+  public void When2LocationsHaveEqualXandY_ThenTheyAreEqual()
   {
     var location1 = new Location(1, 2);
     var location2 = new Location(1, 2);
@@ -25,7 +25,7 @@ public class LocationTests
   }
 
   [Fact]
-  public void WhenComparedWithNull_ThenTeyAreNotEqual()
+  public void WhenComparedWithNull_ThenTheyAreNotEqual()
   {
     var location = new Location(0, 0);
 
