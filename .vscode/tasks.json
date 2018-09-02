@@ -21,7 +21,10 @@
             "type": "process",
             "args": [
                 "test",
-                "${workspaceFolder}/FindMyToy.Tests/FindMyToy.Tests.csproj"
+                "${workspaceFolder}/FindMyToy.Tests/FindMyToy.Tests.csproj",
+                "/p:CollectCoverage=true",
+                "/p:CoverletOutputFormat=\"opencover,lcov\"",
+                "/p:CoverletOutput=../lcov"
             ],
             "problemMatcher": "$msCompile",
             "group": {
