@@ -12,4 +12,15 @@ public class LocationTests
 
     Assert.True(areEquel);
   }
+
+  [Fact]
+  public void WhenComparedWithOtherType_ThenTheyAreNotEqual()
+  {
+    var location = new Location(0, 0);
+    var other = new object();
+
+    var areEquel = location.Equals(other);
+
+    Assert.False(areEquel);
+  }
 }
