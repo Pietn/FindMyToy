@@ -23,4 +23,14 @@ public class LocationTests
 
     Assert.False(areEquel);
   }
+
+  [Fact]
+  public void WhenComparedWithNull_ThenTeyAreNotEqual()
+  {
+    var location = new Location(0, 0);
+
+    var areEquel = location.Equals(null);
+
+    Assert.False(areEquel);
+  }
 }
