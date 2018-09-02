@@ -55,4 +55,15 @@ public class LocationTests
 
     Assert.False(areEquel);
   }
+
+  [Fact]
+  public void When2LocationsHaveEqualXAndY_ThenTheyHaveSameHashCode()
+  {
+    var location1 = new Location(1, 2);
+    var location2 = new Location(1, 2);
+
+    var areEquel = location1.GetHashCode().Equals(location2.GetHashCode());
+
+    Assert.True(areEquel);
+  }
 }
