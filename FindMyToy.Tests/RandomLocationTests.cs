@@ -32,4 +32,18 @@ public class RandomLocationTests
 
     random.Verify(t => t.GetNext(0, 3), Times.AtLeastOnce);
   }
+
+  [Fact]
+  public void WhenRandomLocationIs0_ThenLocationIsAtX0Y0()
+  {
+    var random = new Mock<IRandom>();
+    random
+      .Setup(t => t.GetNext(0, It.IsAny<int>()))
+      .Returns(() => 0);
+    var randomLocation = new RandomLocation(random.Object);
+
+    var location = randomLocation.GetInRange(3);
+
+    Assert.Equal(new Location(0, 0), location);
+  }
 }
