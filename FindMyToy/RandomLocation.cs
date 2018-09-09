@@ -13,7 +13,8 @@ internal class RandomLocation
       Location.Right,
       Location.DownRight,
       Location.DownLeft,
-      Location.Left
+      Location.Left,
+      Location.UpLeft
     };
   }
 
