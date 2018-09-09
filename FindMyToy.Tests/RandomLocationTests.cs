@@ -12,7 +12,7 @@ public class RandomLocationTests
 
     random.Verify(t => t.GetNext(0, 1), Times.AtLeastOnce);
   }
-  
+
   [Fact]
   public void WhenRangeIs2_ThenRandomLocationsIs3()
   {
@@ -22,7 +22,7 @@ public class RandomLocationTests
 
     random.Verify(t => t.GetNext(0, 3), Times.AtLeastOnce);
   }
-  
+
   [Fact]
   public void WhenRangeIs3_ThenRandomLocationsIs11()
   {
@@ -38,6 +38,7 @@ public class RandomLocationTests
   [InlineData(1, 0, 1)]
   [InlineData(2, 1, 0)]
   [InlineData(3, 1, -1)]
+  [InlineData(4, 0, -1)]
   public void WhenRandomLocationIsIndex_ThenLocationIsAtXAndY(int index, int x, int y)
   {
     var random = new Mock<IRandom>();
