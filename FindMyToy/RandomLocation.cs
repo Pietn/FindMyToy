@@ -4,10 +4,15 @@ internal class RandomLocation
   : IRandomLocation
 {
   public readonly IRandom _random;
+  private readonly Location[] _circleTurns;
 
   public RandomLocation(IRandom random)
   {
     _random = random;
+    _circleTurns = new [] {
+      Location.Right,
+      Location.DownRight
+    };
   }
 
   public Location GetInRange(int range)
@@ -25,7 +30,8 @@ internal class RandomLocation
       var currentLocation = Location.Origin.Add(Location.UpLeft);
       for( var i = 1; i < index; i++)
       {
-        currentLocation = currentLocation.Add(Location.Right);
+        var turn = _circleTurns[i - 1];
+        currentLocation = currentLocation.Add(turn);
       }
       return currentLocation;
     }

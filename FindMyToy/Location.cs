@@ -3,12 +3,14 @@ internal class Location
   public static Location Origin { get; }
   public static Location UpLeft { get; }
   public static Location Right { get; }
+  public static Location DownRight { get; }
 
   static Location()
   {
     Origin = new Location(0, 0);
     UpLeft = new Location(0, 1);
     Right = new Location(1, -1);
+    DownRight = new Location(0, -1);
   }
 
   public Location(int x, int y)
