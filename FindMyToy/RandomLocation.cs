@@ -3,7 +3,7 @@ using System;
 internal class RandomLocation
   : IRandomLocation
 {
-  public readonly IRandom _random;
+  private readonly IRandom _random;
   private readonly Location[] _circleTurns;
 
   public RandomLocation(IRandom random)
