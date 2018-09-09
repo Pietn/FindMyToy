@@ -46,7 +46,7 @@ internal class RandomLocation
 
     for (var i = startIndex; i < index; i++)
     {
-      var turn = _circleTurns[i - 1];
+      var turn = _circleTurns[(i - startIndex) / range];
       currentLocation = currentLocation.Add(turn);
     }
     return currentLocation;
