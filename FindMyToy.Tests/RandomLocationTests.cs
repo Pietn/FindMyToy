@@ -46,4 +46,18 @@ public class RandomLocationTests
 
     Assert.Equal(new Location(0, 0), location);
   }
+  
+  [Fact]
+  public void WhenRandomLocationIs1_ThenLocationIsAtX0Y1()
+  {
+    var random = new Mock<IRandom>();
+    random
+      .Setup(t => t.GetNext(0, It.IsAny<int>()))
+      .Returns(() => 1);
+    var randomLocation = new RandomLocation(random.Object);
+
+    var location = randomLocation.GetInRange(3);
+
+    Assert.Equal(new Location(0, 1), location);
+  }
 }

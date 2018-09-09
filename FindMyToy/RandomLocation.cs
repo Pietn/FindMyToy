@@ -1,9 +1,12 @@
+using System;
+
 internal class RandomLocation
   : IRandomLocation
 {
   public readonly IRandom _random;
 
-  public RandomLocation(IRandom random) {
+  public RandomLocation(IRandom random)
+  {
     _random = random;
   }
 
@@ -14,8 +17,16 @@ internal class RandomLocation
       numberOfLocations = 1;
 
     var index = _random.GetNext(0, numberOfLocations);
-    
-    return new Location(0, 0);
+
+    if (index == 0)
+      return Location.Origin;
+
+    if (index < 1 * 6 + 1) {
+      var start = Location.Origin.Add(Location.UpLeft);
+      return start;
+    }
+
+    throw new NotImplementedException();
   }
 
   private int GetNumberOfLocations(int range)
