@@ -24,6 +24,7 @@ public class RandomLocationTests
   [InlineData(4, 0, -1)]
   [InlineData(5, -1, 0)]
   [InlineData(6, -1, 1)]
+  [InlineData(7, 0, 2)]
   public void WhenRandomLocationIsIndex_ThenLocationIsAtXAndY(int index, int x, int y)
   {
     var random = new Mock<IRandom>();

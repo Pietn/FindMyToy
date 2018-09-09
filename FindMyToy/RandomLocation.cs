@@ -22,17 +22,9 @@ internal class RandomLocation
   {
     var numberOfLocations = GetNumberOfLocations(range);
     var index = _random.GetNext(0, numberOfLocations);
+    var location = GetLocationAtIndex(index);
 
-    if (index == 0)
-      return Location.Origin;
-
-    var currentLocation = Location.Origin.Add(Location.UpLeft);
-    for (var i = 1; i < index; i++)
-    {
-      var turn = _circleTurns[i - 1];
-      currentLocation = currentLocation.Add(turn);
-    }
-    return currentLocation;
+    return location;
   }
 
   private int GetNumberOfLocations(int range)
@@ -41,5 +33,42 @@ internal class RandomLocation
       return 1;
 
     return range * 6 + GetNumberOfLocations(range - 1);
+  }
+
+  private Location GetLocationAtIndex(int index)
+  {
+    if (index == 0)
+      return Location.Origin;
+
+    var range = GetRangeForIndex(index);
+    var currentLocation = GetStartLocationForRange(range);
+    var startIndex = GetNumberOfLocations(range - 1);
+
+    for (var i = startIndex; i < index; i++)
+    {
+      var turn = _circleTurns[i - 1];
+      currentLocation = currentLocation.Add(turn);
+    }
+    return currentLocation;
+  }
+
+  private int GetRangeForIndex(int index)
+  {
+    var range = 0;
+
+    while (GetNumberOfLocations(range) <= index)
+      range++;
+
+    return range;
+  }
+
+  private Location GetStartLocationForRange(int range)
+  {
+    var location = Location.Origin;
+
+    for (var i = 0; i < range; i++)
+      location = location.Add(Location.UpLeft);
+
+    return location;
   }
 }
