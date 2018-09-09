@@ -2,11 +2,13 @@ internal class Location
 {
   public static Location Origin { get; }
   public static Location UpLeft { get; }
+  public static Location Right { get; }
 
   static Location()
   {
     Origin = new Location(0, 0);
     UpLeft = new Location(0, 1);
+    Right = new Location(1, -1);
   }
 
   public Location(int x, int y)
@@ -19,7 +21,7 @@ internal class Location
 
   public int Y { get; }
 
-  public Location Add(Location location) 
+  public Location Add(Location location)
   {
     return new Location(X + location.X, Y + location.Y);
   }

@@ -22,8 +22,12 @@ internal class RandomLocation
       return Location.Origin;
 
     if (index < 1 * 6 + 1) {
-      var start = Location.Origin.Add(Location.UpLeft);
-      return start;
+      var currentLocation = Location.Origin.Add(Location.UpLeft);
+      for( var i = 1; i < index; i++)
+      {
+        currentLocation = currentLocation.Add(Location.Right);
+      }
+      return currentLocation;
     }
 
     throw new NotImplementedException();
