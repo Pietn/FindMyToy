@@ -9,7 +9,7 @@ internal class RandomLocation
   public RandomLocation(IRandom random)
   {
     _random = random;
-    _circleTurns = new [] {
+    _circleTurns = new[] {
       Location.Right,
       Location.DownRight,
       Location.DownLeft,
@@ -29,17 +29,13 @@ internal class RandomLocation
     if (index == 0)
       return Location.Origin;
 
-    if (index < 1 * 6 + 1) {
-      var currentLocation = Location.Origin.Add(Location.UpLeft);
-      for( var i = 1; i < index; i++)
-      {
-        var turn = _circleTurns[i - 1];
-        currentLocation = currentLocation.Add(turn);
-      }
-      return currentLocation;
+    var currentLocation = Location.Origin.Add(Location.UpLeft);
+    for (var i = 1; i < index; i++)
+    {
+      var turn = _circleTurns[i - 1];
+      currentLocation = currentLocation.Add(turn);
     }
-
-    throw new NotImplementedException();
+    return currentLocation;
   }
 
   private int GetNumberOfLocations(int range)
