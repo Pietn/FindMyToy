@@ -12,7 +12,8 @@ internal class RandomLocation
     _circleTurns = new [] {
       Location.Right,
       Location.DownRight,
-      Location.DownLeft
+      Location.DownLeft,
+      Location.Left
     };
   }
 

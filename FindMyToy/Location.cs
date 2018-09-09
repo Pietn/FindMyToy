@@ -2,6 +2,7 @@ internal class Location
 {
   public static Location Origin { get; }
   public static Location UpLeft { get; }
+  public static Location Left { get; }
   public static Location DownLeft { get; }
   public static Location Right { get; }
   public static Location DownRight { get; }
@@ -10,6 +11,7 @@ internal class Location
   {
     Origin = new Location(0, 0);
     UpLeft = new Location(0, 1);
+    Left = new Location(-1, 1);
     Right = new Location(1, -1);
     DownRight = new Location(0, -1);
     DownLeft = new Location(-1, 0);
