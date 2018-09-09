@@ -5,8 +5,8 @@ public class RandomLocationTests
 {
   [Theory]
   [InlineData(0, 1)]
-  [InlineData(1, 7)]
-  [InlineData(2, 19)]
+  [InlineData(1, 3)]
+  [InlineData(2, 11)]
   public void WhenRangeIsRange_ThenRandomLocationsIsNumberOfLocations(int range, int numberOfLocations)
   {
     var random = new Mock<IRandom>();
