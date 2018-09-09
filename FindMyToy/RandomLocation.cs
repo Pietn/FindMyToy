@@ -20,10 +20,7 @@ internal class RandomLocation
 
   public Location GetInRange(int range)
   {
-    var numberOfLocations = GetNumberOfLocations(range - 1) + (range - 1) * 2;
-    if (range == 1)
-      numberOfLocations = 1;
-
+    var numberOfLocations = GetNumberOfLocations(range);
     var index = _random.GetNext(0, numberOfLocations);
 
     if (index == 0)
@@ -40,9 +37,9 @@ internal class RandomLocation
 
   private int GetNumberOfLocations(int range)
   {
-    if (range == 1)
+    if (range == 0)
       return 1;
 
-    return (range - 1) * 6;
+    return range * 6 + GetNumberOfLocations(range - 1);
   }
 }

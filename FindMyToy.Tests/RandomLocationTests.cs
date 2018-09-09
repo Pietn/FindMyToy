@@ -4,8 +4,9 @@ using Xunit;
 public class RandomLocationTests
 {
   [Theory]
-  [InlineData(1, 1)]
-  [InlineData(2, 3)]
+  [InlineData(0, 1)]
+  [InlineData(1, 7)]
+  [InlineData(2, 19)]
   public void WhenRangeIsRange_ThenRandomLocationsIsNumberOfLocations(int range, int numberOfLocations)
   {
     var random = new Mock<IRandom>();
