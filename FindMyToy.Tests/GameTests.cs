@@ -18,11 +18,12 @@ public class GameTests
   [Fact]
   public void WhenMovingUpLeftFromOrigin_ThenPlayerNewLocationShouldBeX0Y0()
   {
-    var randomLocation  = new Mock<IRandomLocation>();
+    var randomLocation = new Mock<IRandomLocation>();
     randomLocation
       .Setup(t => t.GetInRange(2))
       .Returns(() => Location.Origin);
     var game = new Game(2, randomLocation.Object);
+
     game.MoveUpLeft();
 
     Assert.Equal(new Location(0, 1), game.PlayerLocation);
