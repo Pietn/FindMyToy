@@ -6,4 +6,9 @@ public class Game
   }
 
   internal Location PlayerLocation { get; private set; }
+
+  public void MoveUpLeft()
+  {
+    PlayerLocation = PlayerLocation.Add(Location.UpLeft);
+  }
 }
